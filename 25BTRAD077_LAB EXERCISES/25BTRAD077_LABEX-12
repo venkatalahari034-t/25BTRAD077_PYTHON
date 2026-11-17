@@ -1,0 +1,84 @@
+
+file_name = "students.txt"
+
+while True:
+    print("\n1. Add Student")
+    print("2. Display Students")
+    print("3. Search Student")
+    print("4. Update Student")
+    print("5. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        roll = input("Enter roll number: ")
+        name = input("Enter name: ")
+        marks = input("Enter marks: ")
+
+        with open(file_name, "a") as file:
+            file.write(roll + "," + name + "," + marks + "\n")
+
+        print("Student added.")
+
+    elif choice == "2":
+        try:
+            with open(file_name, "r") as file:
+                print("\nStudent Records:")
+                for line in file:
+                    print(line.strip())
+        except FileNotFoundError:
+            print("No records found.")
+
+    elif choice == "3":
+        roll = input("Enter roll number to search: ")
+        found = False
+
+        try:
+            with open(file_name, "r") as file:
+                for line in file:
+                    if line.startswith(roll + ","):
+                        print("Student found:", line.strip())
+                        found = True
+                        break
+
+            if not found:
+                print("Student not found.")
+
+        except FileNotFoundError:
+            print("No records found.")
+
+    elif choice == "4":
+        roll = input("Enter roll number to update: ")
+        records = []
+        found = False
+
+        try:
+            with open(file_name, "r") as file:
+                for line in file:
+                    if line.startswith(roll + ","):
+                        name = input("Enter new name: ")
+                        marks = input("Enter new marks: ")
+
+                        records.append(
+                            roll + "," + name + "," + marks + "\n"
+                        )
+                        found = True
+                    else:
+                        records.append(line)
+
+            if found:
+                with open(file_name, "w") as file:
+                    file.writelines(records)
+
+                print("Student updated.")
+            else:
+                print("Student not found.")
+
+        except FileNotFoundError:
+            print("No records found.")
+
+    elif choice == "5":
+        break
+
+    else:
+        print("Invalid choice.")

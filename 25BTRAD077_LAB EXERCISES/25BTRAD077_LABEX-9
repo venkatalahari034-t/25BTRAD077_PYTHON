@@ -1,0 +1,39 @@
+students = {}
+
+n = int(input("Enter number of students: "))
+
+for i in range(n):
+    name = input("Enter student name: ")
+    marks = float(input("Enter marks (0-100): "))
+
+    if marks < 0 or marks > 100:
+        print("Invalid marks.")
+        continue
+
+    if marks >= 90:
+        grade = "A+"
+    elif marks >= 80:
+        grade = "A"
+    elif marks >= 70:
+        grade = "B"
+    elif marks >= 60:
+        grade = "C"
+    elif marks >= 50:
+        grade = "D"
+    elif marks >= 40:
+        grade = "E"
+    else:
+        grade = "F"
+
+    students[name] = {
+        "marks": marks,
+        "grade": grade
+    }
+
+print("\n===== STUDENT RESULTS =====")
+
+for name, details in students.items():
+    print(f"Name: {name}")
+    print(f"Marks: {details['marks']}")
+    print(f"Grade: {details['grade']}")
+    print("--------------------")

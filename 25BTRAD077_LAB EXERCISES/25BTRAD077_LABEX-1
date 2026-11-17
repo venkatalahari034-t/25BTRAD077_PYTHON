@@ -1,0 +1,29 @@
+# Lab Exercise 1: Installing Python, Setting up VS Code /PyCharm, Jupyter Notebook 
+# Aim: 
+# To install Python and set up Python development environments #such as VS Code,  PyCharm, and Jupyter Notebook. 
+# Procedure: 
+# Step 1: Install Python 
+# 1. Download and install #Python.  
+# 2. During installation, select Add Python to PATH.  
+# 3. Complete the installation.  
+# 4. Open Command Prompt/Terminal and check the installation using: 
+# python –version 
+# Step 2: Set up VS Code 
+# 1. Install Visual Studio Code.  
+# 2. Open VS Code.  
+# 3. Install the Python extension.  
+# 4. Create a file with .py extension.  
+# 5. Write and run a Python program.  
+# Step 3: Set up PyCharm 
+# 1. Install PyCharm.  
+# 2. Open PyCharm.  
+# 3. Create a new Python project.  
+# 4. Select the Python interpreter.  
+# 5. Create a Python file and execute the program.  
+# Step 4: Set up Jupyter Notebook 
+# Jupyter Notebook can be installed using: 
+# pip install notebook 
+# Then start Jupyter Notebook using: 
+# jupyter notebook 
+# Result: 
+# Python and the required Python development environments were successfully installed and configured.
