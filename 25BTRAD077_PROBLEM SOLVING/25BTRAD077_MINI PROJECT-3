@@ -1,0 +1,129 @@
+# Attendance Tracker
+
+students = {}
+
+while True:
+    print("\n--- ATTENDANCE TRACKER ---")
+    print("1. Add Student")
+    print("2. Mark Attendance")
+    print("3. Display Attendance")
+    print("4. Check Low Attendance")
+    print("5. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        name = input("Enter student name: ")
+
+        if name not in students:
+            students[name] = []
+            print("Student added.")
+        else:
+            print("Student already exists.")
+
+    elif choice == "2":
+        name = input("Enter student name: ")
+
+        if name in students:
+            status = input("Enter Present or Absent: ").capitalize()
+
+            if status == "Present" or status == "Absent":
+                students[name].append(status)
+                print("Attendance recorded.")
+            else:
+                print("Enter Present or Absent.")
+        else:
+            print("Student not found.")
+
+    elif choice == "3":
+        print("\nAttendance Details")
+
+        for name, records in students.items():
+            total = len(records)
+            present = records.count("Present")
+
+            if total > 0:
+                percentage = (present / total) * 100
+            else:
+                percentage = 0
+
+            print(name, ":", records)
+            print("Attendance:", round(percentage, 2), "%")
+
+    elif choice == "4":
+        threshold = float(input("Enter attendance threshold: "))
+
+        for name, records in students.items():
+            total = len(records)
+            present = records.count("Present")
+
+            if total > 0:
+                percentage = (present / total) * 100
+            else:
+                percentage = 0
+
+            if percentage < threshold:
+                print(name, "has low attendance:", round(percentage, 2), "%")
+
+    elif choice == "5":
+        break
+
+    else:
+        print("Invalid choice.")
+        
+        
+# B: Sales Data Analyzer
+
+
+sales = {}
+
+while True:
+    print("\n--- SALES DATA ANALYZER ---")
+    print("1. Add or Update Product")
+    print("2. Display Sales Summary")
+    print("3. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        name = input("Enter product name: ")
+        quantity = int(input("Enter quantity sold: "))
+        price = float(input("Enter price per item: "))
+
+        sales[name] = {
+            "quantity": quantity,
+            "price": price
+        }
+
+        print("Product record saved.")
+
+    elif choice == "2":
+        total_sales = 0
+        highest_product = ""
+        highest_quantity = -1
+
+        print("\nSales Summary")
+
+        for name, details in sales.items():
+            quantity = details["quantity"]
+            price = details["price"]
+            revenue = quantity * price
+            total_sales += revenue
+
+            print(name, "- Quantity:", quantity,
+                  "Revenue:", revenue)
+
+            if quantity > highest_quantity:
+                highest_quantity = quantity
+                highest_product = name
+
+        print("Total Sales:", total_sales)
+
+        if highest_product != "":
+            print("Highest-Selling Product:", highest_product)
+
+    elif choice == "3":
+        break
+
+    else:
+        print("Invalid choice.")

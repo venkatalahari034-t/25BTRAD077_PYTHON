@@ -1,0 +1,25 @@
+
+print("UNIT CONVERTER")
+print("1. Kilometers to Meters")
+print("2. Meters to Centimeters")
+print("3. Celsius to Fahrenheit")
+
+choice = int(input("Enter your choice: "))
+
+if choice == 1:
+    km = float(input("Enter distance in kilometers: "))
+    meters = km * 1000
+    print(f"{km} km = {meters} meters")
+
+elif choice == 2:
+    meters = float(input("Enter distance in meters: "))
+    centimeters = meters * 100
+    print(f"{meters} m = {centimeters} cm")
+
+elif choice == 3:
+    celsius = float(input("Enter temperature in Celsius: "))
+    fahrenheit = (celsius * 9 / 5) + 32
+    print(f"{celsius}°C = {fahrenheit:.2f}°F")
+
+else:
+    print("Invalid choice")
